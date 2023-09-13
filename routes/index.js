@@ -7,17 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.post('/', function(req, res) {
+router.post('/story', function(req, res) {
   let body = req.body;
   let newStory = getStory(body);
   res.render('story', {
     newStory: newStory
   });
 })
-
-
-
-
 
 module.exports = router;
 
@@ -31,4 +27,16 @@ function getStory(formData) {
   } else {
     return "invalid";
   }
+}
+
+function generateStory1(formData){
+  return `Twas a dark and stormy ${formData.noun1}. The ${formData.adjective1} pumpkins started to ${formData.verb1}.`
+}
+
+function generateStory2(formData){
+  return `Twas a dark and stormy ${formData.noun1}. The ${formData.adjective1} pumpkins started to ${formData.verb1}.`
+}
+
+function generateStory3(formData){
+  return `Twas a dark and stormy ${formData.noun1}. The ${formData.adjective1} pumpkins started to ${formData.verb1}.`
 }
